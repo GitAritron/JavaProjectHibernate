@@ -3,12 +3,13 @@ package entity;
 
 import javax.persistence.*;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
 @Table(name = "Fees")
-public class Fees {
+public class Fees implements Serializable {
     @Id
     @Column(name = "due", nullable = false)
     private LocalDate due;

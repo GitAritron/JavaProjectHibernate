@@ -6,12 +6,13 @@ package entity;
 
 import javax.persistence.*;
 
+import java.io.Serializable;
 import java.util.Objects;
 import java.util.Set;
 
 @Entity
 @Table(name = "apartment")
-public class Apartment {
+public class Apartment implements Serializable {
 
     @ManyToOne
     @Id
