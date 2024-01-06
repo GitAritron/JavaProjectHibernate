@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="491cf250-538b-4eeb-bef2-3761c0be085f" name="Changes" comment="Fixed db mapping.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/CompanyDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="491cf250-538b-4eeb-bef2-3761c0be085f" name="Changes" comment="Added basic forms of DAOs." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,7 +46,9 @@
   &quot;associatedIndex&quot;: 6
 }</component>
   <component name="ProjectId" id="2aaaPsPDOgStQG5pWVKNSIbvDDv" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -113,7 +112,7 @@
       <workItem from="1704559127681" duration="1233000" />
       <workItem from="1704560442296" duration="1454000" />
       <workItem from="1704562242239" duration="916000" />
-      <workItem from="1704563174626" duration="2901000" />
+      <workItem from="1704563174626" duration="3304000" />
     </task>
     <task id="LOCAL-00001" summary="Started Project added Entities.">
       <created>1704560155711</created>
@@ -130,7 +129,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704565531685</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added basic forms of DAOs.">
+      <option name="closed" value="true" />
+      <created>1704566473081</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1704566473081</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,6 +157,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Started Project added Entities." />
     <MESSAGE value="Fixed db mapping." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed db mapping." />
+    <MESSAGE value="Added basic forms of DAOs." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added basic forms of DAOs." />
   </component>
 </project>
