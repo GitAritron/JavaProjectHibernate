@@ -7,6 +7,7 @@ package entity;
 import javax.persistence.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -33,16 +34,19 @@ public class Apartment implements Serializable {
     private ApartmentOwner apartmentOwner;
 
     @OneToMany(mappedBy = "apartment")
-    private Set<Tenant> tenants;
+    private final Set<Tenant> tenants;
     @OneToMany(mappedBy = "apartment")
-    private Set<Pet> pets;
+    private final Set<Pet> pets;
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "apartment")
-    private Set<Fees> fees;
+    private final Set<Fees> fees;
 
     // Getters and setters
 
 
     public Apartment() {
+        this.tenants = new HashSet<>();
+        this.pets = new HashSet<>();
+        this.fees = new HashSet<>();
     }
 
     public Apartment(Building building, int apartmentNumber, int floor, double area, ApartmentOwner apartmentOwner) {
@@ -51,6 +55,9 @@ public class Apartment implements Serializable {
         this.floor = floor;
         this.area = area;
         this.apartmentOwner = apartmentOwner;
+        this.tenants = new HashSet<>();
+        this.pets = new HashSet<>();
+        this.fees = new HashSet<>();
     }
 
 

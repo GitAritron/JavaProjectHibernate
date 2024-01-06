@@ -10,3 +10,6 @@ public class Main {
 //TODO need Data Access Objects (DAOs) and DTOs for read-only operations
     }
 }
+
+
+//Hibernate.isInitialized(orderDetailSet); is used to test if a "LazyLoad" object is loaded

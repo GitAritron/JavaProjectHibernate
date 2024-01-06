@@ -4,6 +4,7 @@ package entity;
 import javax.persistence.*;
 
 import javax.persistence.Entity;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -18,15 +19,18 @@ public class ApartmentOwner {
     private String name;
 
     @OneToMany(mappedBy = "apartmentOwner")
-    private Set<Apartment> apartments;
+    private final Set<Apartment> apartments;
 
     // Getters and setters
 
 
     public ApartmentOwner() {
+        this.apartments = new HashSet<>();
     }
+
     public ApartmentOwner(String name) {
         this.name = name;
+        this.apartments = new HashSet<>();
     }
 
     public long getId() {

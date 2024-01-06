@@ -3,6 +3,7 @@ package entity;
 
 import javax.persistence.*;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -20,13 +21,15 @@ public class Company {
     private String bulstat;*/
 
     @OneToMany(mappedBy = "company")
-    private Set<Employee> employees;
+    private final Set<Employee> employees;
 
     public Company() {
+        this.employees = new HashSet<>();
     }
     public Company(String name/*, String bulstat*/) {
         this.name = name;
         /*this.bulstat = bulstat;*/
+        this.employees = new HashSet<>();
     }
 
     public long getId() {

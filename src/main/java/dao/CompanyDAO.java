@@ -33,4 +33,5 @@ public class CompanyDAO {
         }
     }
 
+    //TODO a method to contract new buildings and add them to the least busy employee
 }

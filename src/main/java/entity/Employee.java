@@ -3,6 +3,7 @@ package entity;
 
 import javax.persistence.*;
 
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -18,18 +19,20 @@ public class Employee {
     private String name;
 
     @ManyToOne
-    @JoinColumn(name = "FK_idcompany", nullable = false)
+    @JoinColumn(name = "FK_idcompany", nullable = true)
     private Company company;
 
     @OneToMany(mappedBy = "employee")
-    private Set<Building> buildings;
+    private final Set<Building> buildings;
 
     public Employee() {
+        this.buildings = new HashSet<>();
     }
 
     public Employee(String name, Company company) {
         this.name = name;
         this.company = company;
+        this.buildings = new HashSet<>();
     }
 
     public long getId() {
@@ -42,6 +45,11 @@ public class Employee {
 
     public Set<Building> getBuildings() {
         return buildings;
+    }
+
+
+    public void setCompany(Company company) {
+        this.company = company;
     }
 
     @Override

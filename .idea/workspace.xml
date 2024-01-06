@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="491cf250-538b-4eeb-bef2-3761c0be085f" name="Changes" comment="Added basic forms of DAOs." />
+    <list default="true" id="491cf250-538b-4eeb-bef2-3761c0be085f" name="Changes" comment="Added basic forms of DAOs.">
+      <changelist_data name="Philip Spasov" email="philip.spasov2@gmail.com" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/CompanyDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/CompanyDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/EmployeeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/EmployeeDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/Apartment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Apartment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/ApartmentOwner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/ApartmentOwner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Company.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Employee.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,7 +33,13 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Philip Spasov &lt;philip.spasov2@gmail.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SIGN_OFF_COMMIT" value="true" />
   </component>
   <component name="GitHubPullRequestSearchHistory"><![CDATA[{
   "lastFilter": {
@@ -79,6 +95,9 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\HP\IdeaProjects\JavaProjectHibernate\src\main\resources" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="dao" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -112,7 +131,7 @@
       <workItem from="1704559127681" duration="1233000" />
       <workItem from="1704560442296" duration="1454000" />
       <workItem from="1704562242239" duration="916000" />
-      <workItem from="1704563174626" duration="3304000" />
+      <workItem from="1704563174626" duration="5525000" />
     </task>
     <task id="LOCAL-00001" summary="Started Project added Entities.">
       <created>1704560155711</created>
@@ -137,7 +156,23 @@
       <option name="project" value="LOCAL" />
       <updated>1704566473081</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added basic forms of DAOs.">
+      <option name="closed" value="true" />
+      <created>1704566553975</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1704566553975</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added basic forms of DAOs.">
+      <option name="closed" value="true" />
+      <created>1704566576961</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1704566576961</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
