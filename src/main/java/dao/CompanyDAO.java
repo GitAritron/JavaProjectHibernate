@@ -33,5 +33,14 @@ public class CompanyDAO {
         }
     }
 
+    public static Company getCompanyById(long id) {
+        Company company;
+        try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            company = session.get(Company.class, id); //find always searches in the db, get can return a session-associated entity instead
+            transaction.commit();
+        }
+        return company;
+    }
     //TODO a method to contract new buildings and add them to the least busy employee
 }

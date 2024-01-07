@@ -31,4 +31,13 @@ public class PetDAO {
         }
     }
 
+    public static Pet getPetById(long id) {
+        Pet pet;
+        try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            pet = session.get(Pet.class, id); //find always searches in the db, get can return a session-associated entity instead
+            transaction.commit();
+        }
+        return pet;
+    }
 }

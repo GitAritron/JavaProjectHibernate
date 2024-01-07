@@ -31,4 +31,13 @@ public class ApartmentOwnerDAO {
         }
     }
 
+    public static ApartmentOwner getApartmentOwnerById(long id) {
+        ApartmentOwner apartmentOwner;
+        try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            apartmentOwner = session.get(ApartmentOwner.class, id); //find always searches in the db, get can return a session-associated entity instead
+            transaction.commit();
+        }
+        return apartmentOwner;
+    }
 }

@@ -31,4 +31,13 @@ public class BuildingDAO {
         }
     }
 
+    public static Building getBuildingById(long id) {
+        Building building;
+        try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            building = session.get(Building.class, id); //find always searches in the db, get can return a session-associated entity instead
+            transaction.commit();
+        }
+        return building;
+    }
 }

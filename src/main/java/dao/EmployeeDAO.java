@@ -1,6 +1,7 @@
 package dao;
 
 import configuration.SessionFactoryUtil;
+import entity.Building;
 import entity.Employee;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -39,4 +40,13 @@ public static void fireEmployee(Employee employee) { //this method is so that we
         }
     }
 
+    public static Employee getEmployeeById(long id) {
+        Employee employee;
+        try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            employee = session.get(Employee.class, id); //find always searches in the db, get can return a session-associated entity instead
+            transaction.commit();
+        }
+        return employee;
+    }
 }
