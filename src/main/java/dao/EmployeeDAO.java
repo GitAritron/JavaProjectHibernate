@@ -33,8 +33,8 @@ public class EmployeeDAO {
 public static void fireEmployee(Employee employee) { //this method is so that we don't delete the employee, in order not to lose data pointlessly
         try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-            //TODO here - transfer managed buildings to other employees of the company AND remove the FK for company
-            employee.setCompany(null);
+            //TODO here - transfer managed buildings to other employees of the company
+            employee.setCompany(null); //AND remove the FK for company (not tested)
             transaction.commit();
         }
     }

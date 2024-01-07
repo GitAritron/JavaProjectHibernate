@@ -4,16 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="491cf250-538b-4eeb-bef2-3761c0be085f" name="Changes" comment="Added basic forms of DAOs.">
-      <changelist_data name="Philip Spasov" email="philip.spasov2@gmail.com" />
+    <list default="true" id="491cf250-538b-4eeb-bef2-3761c0be085f" name="Changes" comment="Added initialization of each object's Set on creation;&#10;Added fireEmployee (in addition to delete, so that we do not lose any data pointlessly)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/CompanyDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/CompanyDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/EmployeeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/EmployeeDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/Apartment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Apartment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/ApartmentOwner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/ApartmentOwner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Company.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Employee.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,12 +34,12 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="SIGN_OFF_COMMIT" value="true" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "GitAritron"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;GitAritron&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -84,7 +77,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -131,7 +124,7 @@
       <workItem from="1704559127681" duration="1233000" />
       <workItem from="1704560442296" duration="1454000" />
       <workItem from="1704562242239" duration="916000" />
-      <workItem from="1704563174626" duration="5525000" />
+      <workItem from="1704563174626" duration="6106000" />
     </task>
     <task id="LOCAL-00001" summary="Started Project added Entities.">
       <created>1704560155711</created>
@@ -172,7 +165,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704566576961</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added initialization of each object's Set on creation;&#10;Added fireEmployee (in addition to delete, so that we do not lose any data pointlessly)">
+      <option name="closed" value="true" />
+      <created>1704568870625</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1704568870625</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,6 +194,7 @@
     <MESSAGE value="Started Project added Entities." />
     <MESSAGE value="Fixed db mapping." />
     <MESSAGE value="Added basic forms of DAOs." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added basic forms of DAOs." />
+    <MESSAGE value="Added initialization of each object's Set on creation;&#10;Added fireEmployee (in addition to delete, so that we do not lose any data pointlessly)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added initialization of each object's Set on creation;&#10;Added fireEmployee (in addition to delete, so that we do not lose any data pointlessly)" />
   </component>
 </project>

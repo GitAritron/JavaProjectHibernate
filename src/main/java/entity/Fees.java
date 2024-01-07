@@ -11,7 +11,7 @@ import java.util.Objects;
 @Table(name = "Fees")
 public class Fees implements Serializable {
     @Id
-    @Column(name = "due", nullable = false)
+    @Column(name = "due", updatable = false, nullable = false)
     private LocalDate due;
 
     @Column(name = "amount", nullable = false)

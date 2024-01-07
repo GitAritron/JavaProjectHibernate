@@ -17,10 +17,10 @@ public class Apartment implements Serializable {
 
     @ManyToOne
     @Id
-    @JoinColumn(name = "FK_idbuilding", referencedColumnName = "idbuilding", nullable = false)
+    @JoinColumn(name = "FK_idbuilding", referencedColumnName = "idbuilding", updatable = false, nullable = false)
     private Building building;
     @Id
-    @Column(name = "apartmentNumber", nullable = false)
+    @Column(name = "apartmentNumber", updatable = false, nullable = false)
     private int apartmentNumber;
 
     @Column(name = "floor", nullable = false)

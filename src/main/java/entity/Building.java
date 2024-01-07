@@ -13,7 +13,7 @@ import java.util.Set;
 public class Building {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idbuilding")
+    @Column(name = "idbuilding", updatable = false, nullable = false)
     private long id;
 
     @Column(name = "numOfFloors", nullable = false)

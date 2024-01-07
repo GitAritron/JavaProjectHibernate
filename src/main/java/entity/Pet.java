@@ -8,7 +8,7 @@ import javax.persistence.*;
 public class Pet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idpet")
+    @Column(name = "idpet", updatable = false, nullable = false)
     private long id;
 
     @Column(name = "name", length = 90)
