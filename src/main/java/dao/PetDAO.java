@@ -17,7 +17,7 @@ public class PetDAO {
 
     public static void updatePet(Pet pet) {
         try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
-            Transaction transaction = session.getTransaction();
+            Transaction transaction = session.beginTransaction();
             session.saveOrUpdate(pet);
             transaction.commit();
         }

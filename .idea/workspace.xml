@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="491cf250-538b-4eeb-bef2-3761c0be085f" name="Changes" comment="Id's of Entities are now not updatable.">
+    <list default="true" id="491cf250-538b-4eeb-bef2-3761c0be085f" name="Changes" comment="getEntityById methods added to DAOs.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/BuildingDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/BuildingDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/CompanyDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/CompanyDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/EmployeeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/EmployeeDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/PetDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/PetDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +125,7 @@
       <workItem from="1704560442296" duration="1454000" />
       <workItem from="1704562242239" duration="916000" />
       <workItem from="1704563174626" duration="6106000" />
-      <workItem from="1704626154582" duration="2582000" />
+      <workItem from="1704626154582" duration="4454000" />
     </task>
     <task id="LOCAL-00001" summary="Started Project added Entities.">
       <created>1704560155711</created>
@@ -185,7 +182,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704626438823</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="getEntityById methods added to DAOs.">
+      <option name="closed" value="true" />
+      <created>1704629064965</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1704629064965</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -208,6 +213,7 @@
     <MESSAGE value="Added basic forms of DAOs." />
     <MESSAGE value="Added initialization of each object's Set on creation;&#10;Added fireEmployee (in addition to delete, so that we do not lose any data pointlessly)" />
     <MESSAGE value="Id's of Entities are now not updatable." />
-    <option name="LAST_COMMIT_MESSAGE" value="Id's of Entities are now not updatable." />
+    <MESSAGE value="getEntityById methods added to DAOs." />
+    <option name="LAST_COMMIT_MESSAGE" value="getEntityById methods added to DAOs." />
   </component>
 </project>

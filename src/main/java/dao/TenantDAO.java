@@ -17,7 +17,7 @@ public class TenantDAO {
 
     public static void updateTenant(Tenant tenant) {
         try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
-            Transaction transaction = session.getTransaction();
+            Transaction transaction = session.beginTransaction();
             session.saveOrUpdate(tenant);
             transaction.commit();
         }

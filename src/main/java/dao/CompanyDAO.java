@@ -1,7 +1,9 @@
 package dao;
 
 import configuration.SessionFactoryUtil;
+import entity.Building;
 import entity.Company;
+import entity.Employee;
 import org.hibernate.Transaction;
 import org.hibernate.Session;
 
@@ -19,7 +21,7 @@ public class CompanyDAO {
 
     public static void updateCompany(Company company) {
         try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
-            Transaction transaction = session.getTransaction();
+            Transaction transaction = session.beginTransaction();
             session.saveOrUpdate(company);
             transaction.commit();
         }
@@ -41,6 +43,18 @@ public class CompanyDAO {
             transaction.commit();
         }
         return company;
+    }
+    public static void contractNewBuilding(Building building) {
+        try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            //what employee has the least buildings?
+            Employee employee = session.find(Employee.class, 7L);
+            employee.getBuildings().add(building);
+            session.saveOrUpdate(employee);
+            building.setEmployee(employee);
+
+            transaction.commit();
+        }
     }
     //TODO a method to contract new buildings and add them to the least busy employee
 }

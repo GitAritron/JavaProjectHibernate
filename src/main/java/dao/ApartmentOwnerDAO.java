@@ -17,7 +17,7 @@ public class ApartmentOwnerDAO {
 
     public static void updateApartmentOwner(ApartmentOwner apartmentOwner) {
         try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
-            Transaction transaction = session.getTransaction();
+            Transaction transaction = session.beginTransaction();
             session.saveOrUpdate(apartmentOwner);
             transaction.commit();
         }

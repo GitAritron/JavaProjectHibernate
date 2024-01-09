@@ -18,7 +18,7 @@ public class EmployeeDAO {
 
     public static void updateEmployee(Employee employee) {
         try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
-            Transaction transaction = session.getTransaction();
+            Transaction transaction = session.beginTransaction();
             session.saveOrUpdate(employee);
             transaction.commit();
         }
@@ -49,4 +49,17 @@ public static void fireEmployee(Employee employee) { //this method is so that we
         }
         return employee;
     }
+
+//    public static Employee getEmployeeWithLeastBuildings(long id) { //TODO should this be a DTO instead? :think:
+//        Employee employee;
+//        try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
+//            Transaction transaction = session.beginTransaction();
+//            employee = session.get(Employee.class, id); //find always searches in the db, get can return a session-associated entity instead
+//            transaction.commit();
+//        }
+//        return employee;
+//    }
+    //TODO This should be a DTO!! Employee + buildings fields
+
+
 }

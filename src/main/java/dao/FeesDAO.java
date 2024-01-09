@@ -17,7 +17,7 @@ public class FeesDAO {
 
     public static void updateFees(Fees fees) {
         try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
-            Transaction transaction = session.getTransaction();
+            Transaction transaction = session.beginTransaction();
             session.saveOrUpdate(fees);
             transaction.commit();
         }

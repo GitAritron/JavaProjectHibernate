@@ -17,7 +17,7 @@ public class BuildingDAO {
 
     public static void updateBuilding(Building building) {
         try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
-            Transaction transaction = session.getTransaction();
+            Transaction transaction = session.beginTransaction();
             session.saveOrUpdate(building);
             transaction.commit();
         }
