@@ -8,7 +8,7 @@ import javax.persistence.*;
 public class Pet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idpet", updatable = false, nullable = false)
+    @Column(name = "pet_id", updatable = false, nullable = false)
     private long id;
 
     @Column(name = "name", length = 90)
@@ -20,9 +20,9 @@ public class Pet {
     @Column(name = "usesSharedSpaces", nullable = false)
     private boolean usesSharedSpaces;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
 //    @JoinColumns({
-            @JoinColumn(name = "FK_building_idbuilding", referencedColumnName = "FK_idbuilding", nullable = false)//,
+            @JoinColumn(name = "FK_building_id", referencedColumnName = "FK_building_id", nullable = false)//,
             @JoinColumn(name = "FK_apartmentNumber", referencedColumnName = "apartmentNumber", nullable = false)
 //    })
     private Apartment apartment;

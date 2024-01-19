@@ -12,23 +12,27 @@ import java.util.Set;
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idemployee", updatable = false, nullable = false)
+    @Column(name = "employee_id", updatable = false, nullable = false)
     private long id;
 
     @Column(name = "name", nullable = false, length = 90)
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "FK_idcompany", nullable = true)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "FK_company_id", nullable = true)
     private Company company;
 
-    @OneToMany(mappedBy = "employee")
+    @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY)
     private final Set<Building> buildings;
 
     public Employee() {
         this.buildings = new HashSet<>();
     }
 
+    public Employee(String name) {
+        this.name=name;
+        this.buildings = new HashSet<>();
+    }
     public Employee(String name, Company company) {
         this.name = name;
         this.company = company;
@@ -37,6 +41,10 @@ public class Employee {
 
     public long getId() {
         return id;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void setName(String name) {
@@ -51,7 +59,7 @@ public class Employee {
     public void setCompany(Company company) {
         this.company = company;
     }
-
+/*
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -63,17 +71,19 @@ public class Employee {
     @Override
     public int hashCode() {
         return Objects.hash(id);
-    }
+    }*/
+
+
 
     @Override
     public String toString() {
         return "Employee{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", company=" + company +
+                ", companyName=" + (company!=null?company.getName():"null") +
+                ", buildings=" + buildings +
                 '}';
     }
-
 
     // Getters and setters
 }

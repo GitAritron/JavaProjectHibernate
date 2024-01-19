@@ -12,13 +12,13 @@ import java.util.Set;
 public class ApartmentOwner {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idapartmentOwner", updatable = false, nullable = false)
+    @Column(name = "apartmentOwner_id", updatable = false, nullable = false)
     private long id;
 
     @Column(name = "name", nullable = false, length = 90)
     private String name;
 
-    @OneToMany(mappedBy = "apartmentOwner")
+    @OneToMany(mappedBy = "apartmentOwner", fetch = FetchType.LAZY)
     private final Set<Apartment> apartments;
 
     // Getters and setters
@@ -46,6 +46,7 @@ public class ApartmentOwner {
         return "ApartmentOwner{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", apartments=" + apartments +
                 '}';
     }
 }

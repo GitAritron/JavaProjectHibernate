@@ -73,42 +73,5 @@ public class EmployeeDAO {
         return employee.getBuildings().size();
     } //THIS DOESN'T WORK FROM RELATIONAL POV, BUT OOP POV!!! THAT'S WHY!
 
-    public static List<EmployeeDTOIDOnlyBuildingsCount> getEmployeesDTOIDOnlyBuildingsCount(long id) {
-        List<EmployeeDTOIDOnlyBuildingsCount> employees;
-        try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
-            Transaction transaction = session.beginTransaction();
-            employees = session.createQuery(
-                            "select new dto.EmployeeDTOIDOnlyBuildingsCount(e.id, COUNT(b.id)) from Employee e" +
-                                    " left join Building b on b.employee = e" +
-                                    " join e.company c" +
-                                    " where c.id = :id" + //" and b.id = e.id",
-                                    " group by e.id" +
-                                    " order by COUNT(b.id) asc",
-                            EmployeeDTOIDOnlyBuildingsCount.class)
-                    .setParameter("id", id)
-                    .getResultList();
-            transaction.commit();
-        }
-        return employees;
-    }
 
-    public static EmployeeDTOIDOnlyBuildingsCount getEmployeeDTOIDOnlyBuildingsCountWithLeastBuildings(long id) {
-        EmployeeDTOIDOnlyBuildingsCount employee;
-        try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
-            Transaction transaction = session.beginTransaction();
-            employee = session.createQuery(
-                            "select new dto.EmployeeDTOIDOnlyBuildingsCount(e.id, COUNT(b.id)) from Employee e" +
-                                    " left join Building b on b.employee = e" +
-                                    " join e.company c" +
-                                    " where c.id = :id" + //" and b.id = e.id",
-                                    " group by e.id" +
-                                    " order by COUNT(b.id) asc",
-                            EmployeeDTOIDOnlyBuildingsCount.class)
-                    .setParameter("id", id)
-                    .setMaxResults(1)
-                    .getSingleResult();
-            transaction.commit();
-        }
-        return employee;
-    }
 }

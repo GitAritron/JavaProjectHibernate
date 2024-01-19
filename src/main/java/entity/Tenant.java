@@ -10,7 +10,7 @@ import java.time.LocalDate;
 public class Tenant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idtenant", updatable = false, nullable = false)
+    @Column(name = "tenant_id", updatable = false, nullable = false)
     private long id;
 
     @Column(name = "name", nullable = false, length = 90)
@@ -22,9 +22,9 @@ public class Tenant {
     @Column(name = "usesLift", nullable = false)
     private boolean usesLift;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
 //    @JoinColumns({
-            @JoinColumn(name = "FK_building_idbuilding", referencedColumnName = "FK_idbuilding", nullable = false)//,
+            @JoinColumn(name = "FK_building_idbuilding", referencedColumnName = "FK_building_id", nullable = false)//,
             @JoinColumn(name = "FK_apartmentNumber", referencedColumnName = "apartmentNumber", nullable = false)
 //    })
     private Apartment apartment;

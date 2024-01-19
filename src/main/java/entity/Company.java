@@ -11,17 +11,21 @@ import java.util.Set;
 public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idcompany", updatable = false, nullable = false)
-    private long id;
+    @Column(name = "company_id", updatable = false, nullable = false)
+    public long id;
 
     @Column(name = "name", nullable = false, length = 150)
     private String name;
 
 /*    @Column(name = "BULSTAT", nullable = false, length = 45)
     private String bulstat;*/
-
-    @OneToMany(mappedBy = "company")
+    @OneToMany(mappedBy = "company", fetch = FetchType.LAZY)
     private final Set<Employee> employees;
+
+    public Set<Employee> getEmployees() { //it is FetchType.LAZY - when I load the query into the entity I can use it from here.
+        return employees;
+    }
+
 
     public Company() {
         this.employees = new HashSet<>();
@@ -36,6 +40,14 @@ public class Company {
         return id;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -45,9 +57,9 @@ public class Company {
         return "Company{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-/*                ", bulstat='" + bulstat + '\'' +*/
+//                ", employees=" + employees +
                 '}';
     }
 
-// Getters and setters
+    // Getters and setters
 }

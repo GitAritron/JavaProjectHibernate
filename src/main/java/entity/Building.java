@@ -1,6 +1,8 @@
 package entity;
 
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 import javax.transaction.Transactional;
 
@@ -13,7 +15,7 @@ import java.util.Set;
 public class Building {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idbuilding", updatable = false, nullable = false)
+    @Column(name = "building_id", updatable = false, nullable = false)
     private long id;
 
     @Column(name = "numOfFloors", nullable = false)
@@ -25,11 +27,12 @@ public class Building {
     @Column(name = "totalArea", nullable = false)
     private double totalArea;
 
-    @ManyToOne
-    @JoinColumn(name = "FK_idemployee", nullable = true)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "FK_employee_id", nullable = true)
     private Employee employee;
 
-    @OneToMany(orphanRemoval = true, mappedBy = "building") //TODO (it works like this too tho) maybe should make a query to remove them instead (like here:https://thorben-janssen.com/best-practices-many-one-one-many-associations-mappings/#think-twice-before-using-cascadetyperemove)
+    @OneToMany(orphanRemoval = true, mappedBy = "building", fetch = FetchType.LAZY)
+    //TODO (it works like this too tho) maybe should make a query to remove them instead (like here:https://thorben-janssen.com/best-practices-many-one-one-many-associations-mappings/#think-twice-before-using-cascadetyperemove)
     private final Set<Apartment> apartments;
 
     // Getters and setters
@@ -69,11 +72,11 @@ public class Building {
         this.totalArea = totalArea;
     }
 
-    
+//    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     public void setEmployee(Employee employee) {
         this.employee = employee;
     }
-
+/*
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -85,7 +88,7 @@ public class Building {
     @Override
     public int hashCode() {
         return Objects.hash(id);
-    }
+    }*/
 
     @Override
     public String toString() {
@@ -94,7 +97,8 @@ public class Building {
                 ", numOfFloors=" + numOfFloors +
                 ", numOfApartments=" + numOfApartments +
                 ", totalArea=" + totalArea +
-                ", employee=" + employee +
+                ", employeeID=" + ((employee!=null)?employee.getId() +
+                ", employeeName=" + employee.getName():"null")  +
                 '}';
     }
 }
