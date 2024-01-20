@@ -1,9 +1,14 @@
 package dao;
 
 import configuration.SessionFactoryUtil;
+import dto.ApartmentTenantsAbove7UseLiftDTO;
+import entity.Apartment;
 import entity.Tenant;
+import net.bytebuddy.asm.Advice;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+
+import java.time.LocalDate;
 
 public class TenantDAO {
 
@@ -39,5 +44,28 @@ public class TenantDAO {
             transaction.commit();
         }
         return tenant;
+    }
+
+
+    public static ApartmentTenantsAbove7UseLiftDTO getApartmentTenantsAbove7UseLiftDTO(Apartment apartment) {
+        ApartmentTenantsAbove7UseLiftDTO tenantsDTO;
+        try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
+            LocalDate sevYAgo = LocalDate.now().minusYears(7L);
+            Transaction transaction = session.beginTransaction();
+            tenantsDTO = session.createQuery("""
+                                    select new dto.ApartmentTenantsAbove7UseLiftDTO(COUNT(t.id))
+                                    from Tenant t
+                                    where t.apartment = :a and t.usesLift=true and t.birthdate < :sevYAgo
+                                    group by t.apartment
+                                                                        """,
+                            ApartmentTenantsAbove7UseLiftDTO.class)
+                    .setParameter("a", apartment)
+                    .setParameter("sevYAgo", sevYAgo )
+                    .getSingleResult();
+            transaction.commit();
+        }
+
+
+        return tenantsDTO;
     }
 }

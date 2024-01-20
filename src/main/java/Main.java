@@ -1,12 +1,13 @@
 import configuration.SessionFactoryUtil;
-import dao.BuildingDAO;
-import dao.CompanyDAO;
-import dao.EmployeeDAO;
+import dao.*;
+import entity.Apartment;
 import entity.Building;
 import entity.Company;
 import entity.Employee;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+
+import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
@@ -18,14 +19,19 @@ public class Main {
         System.out.println(building);
 //        CompanyDAO.contractNewBuilding(company, building);
         System.out.println(building);
-
+        Apartment apartment = new Apartment(BuildingDAO.getBuildingById(1L),1,2,100);
 //        Employee employee = EmployeeDAO.getEmployeeById(5L);
 
 //        System.out.println(EmployeeDAO.getNumberOfBuildingsOfEmployee(5L));
 //        System.out.println(CompanyDAO.getCompanyEmployeeDTOIDOnlyBuildingsCountWithLeastBuildings(1L));
 
-
-
+        System.out.println(TenantDAO.getApartmentTenantsAbove7UseLiftDTO(apartment));
+        System.out.println(PetDAO.getApartmentPets(apartment));
+        System.out.println(ApartmentDAO.getBuildingFeesAndApartmentArea(apartment));
+//        System.out.println(ApartmentDAO.getBuildingFeesAndApartmentArea(1,1L));
+//        System.out.println(FeesDAO.calculateMonthFees(apartment));
+//        FeesDAO.addFeesToBePaid(apartment);
+        FeesDAO.payFees(apartment, LocalDate.now());
 /*
 
 

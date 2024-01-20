@@ -26,6 +26,12 @@ public class Building {
 
     @Column(name = "totalArea", nullable = false)
     private double totalArea;
+    @Column(name = "liftFee", nullable = false)
+    private double liftFee;
+    @Column(name = "petFee", nullable = false)
+    private double petFee;
+    @Column(name = "squareMeterFee", nullable = false)
+    private double squareMeterFee;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "FK_employee_id", nullable = true)
@@ -48,10 +54,13 @@ public class Building {
         this.apartments = new HashSet<>();
     }
 
-    public Building(int numOfFloors, int numOfApartments, double totalArea, Employee employee) {
+    public Building(int numOfFloors, int numOfApartments, double totalArea, double liftFee, double petFee, double squareMeterFee, Employee employee) {
         this.numOfFloors = numOfFloors;
         this.numOfApartments = numOfApartments;
         this.totalArea = totalArea;
+        this.liftFee = liftFee;
+        this.petFee = petFee;
+        this.squareMeterFee = squareMeterFee;
         this.employee = employee;
         this.apartments = new HashSet<>();
     }

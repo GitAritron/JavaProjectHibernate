@@ -51,6 +51,18 @@ public class Apartment implements Serializable {
         this.fees = new HashSet<>();
     }
 
+
+    public Apartment(Building building, int apartmentNumber, int floor, double area) {
+        this.building = building;
+        this.apartmentNumber = apartmentNumber;
+        this.floor = floor;
+        this.area = area;
+        this.tenants = new HashSet<>();
+        this.pets = new HashSet<>();
+        this.fees = new HashSet<>();
+    }
+
+
     public Apartment(Building building, int apartmentNumber, int floor, double area, ApartmentOwner apartmentOwner) {
         this.building = building;
         this.apartmentNumber = apartmentNumber;
@@ -70,7 +82,10 @@ public class Apartment implements Serializable {
         return apartmentNumber;
     }
 
-/*@Override
+    public double getArea() {
+        return area;
+    }
+    /*@Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -94,7 +109,7 @@ public class Apartment implements Serializable {
         Class<?> thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
         if (thisEffectiveClass != oEffectiveClass) return false;
         Apartment apartment = (Apartment) o;
-        return getBuilding() != null && getApartmentNumber() != 0 && Objects.equals(getBuilding(), apartment.getBuilding())  && Objects.equals(getApartmentNumber(), apartment.getApartmentNumber());
+        return getBuilding() != null && getApartmentNumber() != 0 && Objects.equals(getBuilding(), apartment.getBuilding()) && Objects.equals(getApartmentNumber(), apartment.getApartmentNumber());
     }
 
     @Override

@@ -172,7 +172,7 @@ public class CompanyDAO {
                             "select new dto.EmployeeDTOIDOnlyBuildingsCount(e.id, COUNT(b.id)) from Employee e" +
                                     " left join Building b on b.employee = e" +
                                     " join e.company c" +
-                                    " where c.id = :id" + //" and b.id = e.id",
+                                    " where c.id = :id" +
                                     " group by e.id" +
                                     " order by COUNT(b.id) asc",
                             EmployeeDTOIDOnlyBuildingsCount.class)

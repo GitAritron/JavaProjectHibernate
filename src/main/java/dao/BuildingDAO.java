@@ -40,4 +40,8 @@ public class BuildingDAO {
         }
         return building;
     }
+
+//TODO DTO for building.tax and apartment.area
+    //and ones for the other two pairs as well - in their corresponding DAOs
+    //aggregated in the final one
 }

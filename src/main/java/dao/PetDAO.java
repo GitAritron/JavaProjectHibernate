@@ -1,9 +1,14 @@
 package dao;
 
 import configuration.SessionFactoryUtil;
+import dto.ApartmentPetsThatUseSSDTO;
+import dto.ApartmentTenantsAbove7UseLiftDTO;
+import entity.Apartment;
 import entity.Pet;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+
+import java.time.LocalDate;
 
 public class PetDAO {
 
@@ -39,5 +44,23 @@ public class PetDAO {
             transaction.commit();
         }
         return pet;
+    }
+
+    public static ApartmentPetsThatUseSSDTO getApartmentPets(Apartment apartment) {
+        ApartmentPetsThatUseSSDTO petsDTO;
+        try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            petsDTO = session.createQuery("""
+                                    select new dto.ApartmentPetsThatUseSSDTO(COUNT(p.id))
+                                    from Pet p
+                                    where p.apartment = :a and p.usesSharedSpaces=true
+                                    group by p.apartment
+                                                                        """,
+                            ApartmentPetsThatUseSSDTO.class)
+                    .setParameter("a", apartment)
+                    .getSingleResult();
+            transaction.commit();
+        }
+        return petsDTO;
     }
 }
