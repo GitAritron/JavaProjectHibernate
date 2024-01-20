@@ -1,6 +1,7 @@
 package dao;
 
 import configuration.SessionFactoryUtil;
+import dto.EmployeeDTOIDAndNameBuildingsCount;
 import dto.EmployeeDTOIDOnlyBuildingsCount;
 import entity.Building;
 import entity.Company;
@@ -215,6 +216,50 @@ public class CompanyDAO {
                                     " join e.company c" +
                                     " where c.id = :id",
                             Employee.class)
+                    .setParameter("id", id)
+                    .getResultList();
+            transaction.commit();
+        }
+        return employees;
+    }
+
+
+
+    public static List<EmployeeDTOIDAndNameBuildingsCount> getCompanyEmployeesSortedByName(long id) {
+        List<EmployeeDTOIDAndNameBuildingsCount> employees;
+        try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            employees = session.createQuery(""" 
+                                    select new dto.EmployeeDTOIDAndNameBuildingsCount(e.name, COUNT(b.id)) 
+                                    from Employee e
+                                    left join fetch Building b on b.employee = e
+                                    join e.company c
+                                    where c.id = :id
+                                    group by e.name
+                                    order by e.name asc
+                                                                        """,
+                            EmployeeDTOIDAndNameBuildingsCount.class)
+                    .setParameter("id", id)
+                    .getResultList();
+            transaction.commit();
+        }
+        return employees;
+    }
+
+    public static List<EmployeeDTOIDAndNameBuildingsCount> getCompanyEmployeesSortedByBuildingsCount(long id) {
+        List<EmployeeDTOIDAndNameBuildingsCount> employees;
+        try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            employees = session.createQuery(""" 
+                                    select new dto.EmployeeDTOIDAndNameBuildingsCount(e.name, COUNT(b.id)) 
+                                    from Employee e
+                                    left join fetch Building b on b.employee = e
+                                    join e.company c
+                                    where c.id = :id
+                                    group by e.name
+                                    order by COUNT(b.id) desc, e.name 
+                                                                        """,
+                            EmployeeDTOIDAndNameBuildingsCount.class)
                     .setParameter("id", id)
                     .getResultList();
             transaction.commit();

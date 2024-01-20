@@ -12,6 +12,9 @@ public class ApartmentTenantsAbove7UseLiftDTO {
         return tenantsAbove7UseLiftDTO;
     }
 
+    public void setTenants(long tenants) {
+        this.tenantsAbove7UseLiftDTO = tenants;
+    }
 
     @Override
     public String toString() {

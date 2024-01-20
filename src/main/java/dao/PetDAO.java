@@ -8,6 +8,7 @@ import entity.Pet;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import javax.persistence.NoResultException;
 import java.time.LocalDate;
 
 public class PetDAO {
@@ -47,7 +48,7 @@ public class PetDAO {
     }
 
     public static ApartmentPetsThatUseSSDTO getApartmentPets(Apartment apartment) {
-        ApartmentPetsThatUseSSDTO petsDTO;
+        ApartmentPetsThatUseSSDTO petsDTO = new ApartmentPetsThatUseSSDTO(0L);
         try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
             petsDTO = session.createQuery("""
@@ -60,6 +61,8 @@ public class PetDAO {
                     .setParameter("a", apartment)
                     .getSingleResult();
             transaction.commit();
+        } catch (NoResultException e){
+            System.out.println("No entity found for query \"getApartmentPets\"");
         }
         return petsDTO;
     }

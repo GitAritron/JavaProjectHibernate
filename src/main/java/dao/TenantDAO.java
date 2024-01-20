@@ -8,6 +8,7 @@ import net.bytebuddy.asm.Advice;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import javax.persistence.NoResultException;
 import java.time.LocalDate;
 
 public class TenantDAO {
@@ -48,7 +49,7 @@ public class TenantDAO {
 
 
     public static ApartmentTenantsAbove7UseLiftDTO getApartmentTenantsAbove7UseLiftDTO(Apartment apartment) {
-        ApartmentTenantsAbove7UseLiftDTO tenantsDTO;
+        ApartmentTenantsAbove7UseLiftDTO tenantsDTO = new ApartmentTenantsAbove7UseLiftDTO(0L);
         try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
             LocalDate sevYAgo = LocalDate.now().minusYears(7L);
             Transaction transaction = session.beginTransaction();
@@ -63,6 +64,8 @@ public class TenantDAO {
                     .setParameter("sevYAgo", sevYAgo )
                     .getSingleResult();
             transaction.commit();
+        } catch (NoResultException e){
+            System.out.println("No entity found for query \"getApartmentTenantsAbove7UseLiftDTO\"");
         }
 
 

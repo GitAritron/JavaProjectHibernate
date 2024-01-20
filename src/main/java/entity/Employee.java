@@ -81,7 +81,7 @@ public class Employee {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", companyName=" + (company!=null?company.getName():"null") +
-                ", buildings=" + buildings +
+//                ", buildings=" + buildings +
                 '}';
     }
 

@@ -106,8 +106,14 @@ public class Building {
                 ", numOfFloors=" + numOfFloors +
                 ", numOfApartments=" + numOfApartments +
                 ", totalArea=" + totalArea +
-                ", employeeID=" + ((employee!=null)?employee.getId() +
-                ", employeeName=" + employee.getName():"null")  +
+                ", liftFee=" + liftFee +
+                ", petFee=" + petFee +
+                ", squareMeterFee=" + squareMeterFee +
+//                ", employee=" + employee +
+                /* ", employeeID=" + ((employee!=null)?employee.getId() +
+                ", employeeName=" + employee.getName():"null")  + */
+//                ", apartments=" + apartments +
                 '}';
     }
+
 }

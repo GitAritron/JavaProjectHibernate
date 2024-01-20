@@ -19,7 +19,7 @@ public class Main {
         System.out.println(building);
 //        CompanyDAO.contractNewBuilding(company, building);
         System.out.println(building);
-        Apartment apartment = new Apartment(BuildingDAO.getBuildingById(1L),1,2,100);
+        Apartment apartment = new Apartment(BuildingDAO.getBuildingById(7L),1,1,10000);
 //        Employee employee = EmployeeDAO.getEmployeeById(5L);
 
 //        System.out.println(EmployeeDAO.getNumberOfBuildingsOfEmployee(5L));
@@ -31,7 +31,15 @@ public class Main {
 //        System.out.println(ApartmentDAO.getBuildingFeesAndApartmentArea(1,1L));
 //        System.out.println(FeesDAO.calculateMonthFees(apartment));
 //        FeesDAO.addFeesToBePaid(apartment);
-        FeesDAO.payFees(apartment, LocalDate.now());
+//        FeesDAO.payFees(apartment, LocalDate.now());
+
+
+        System.out.println(CompanyDAO.getCompanyEmployeesSortedByName(1L));
+        System.out.println(CompanyDAO.getCompanyEmployeesSortedByBuildingsCount(1L));
+
+
+
+
 /*
 
 
