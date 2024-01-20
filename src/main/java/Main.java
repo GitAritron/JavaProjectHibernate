@@ -12,7 +12,7 @@ import java.time.LocalDate;
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println("Hello world!");
+        /*System.out.println("Hello world!");
         Building building = BuildingDAO.getBuildingById(7L);
         Company company = CompanyDAO.getCompanyById(1L);
         System.out.println(company);
@@ -33,10 +33,10 @@ public class Main {
 //        FeesDAO.addFeesToBePaid(apartment);
 //        FeesDAO.payFees(apartment, LocalDate.now());
 
-
-        System.out.println(CompanyDAO.getCompanyEmployeesSortedByName(1L));
-        System.out.println(CompanyDAO.getCompanyEmployeesSortedByBuildingsCount(1L));
-
+*/
+//        System.out.println(CompanyDAO.getCompanyEmployeesSortedByName(1L));
+//        System.out.println(CompanyDAO.getCompanyEmployeesSortedByBuildingsCount(1L));
+        System.out.println(CompanyDAO.getCompaniesSortedByIncome());
 
 
 

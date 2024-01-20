@@ -1,6 +1,7 @@
 package dao;
 
 import configuration.SessionFactoryUtil;
+import dto.CompanyIncomeDTO;
 import dto.EmployeeDTOIDAndNameBuildingsCount;
 import dto.EmployeeDTOIDOnlyBuildingsCount;
 import entity.Building;
@@ -83,7 +84,7 @@ public class CompanyDAO {
         }//TODO LAST I need to find the buildings associated with each employee projection
 //THIS is DTO way with jdbc or something
     } //TODO the problem is that entity has no COUNT column... probably*/
-     //with dto
+    //with dto
     /*public static EmployeeDTOIDOnlyBuildingsCount companyEmployeeWithLeastBuildings(long id) { //old and doesn't work
         EmployeeDTOIDOnlyBuildingsCount employee;
         try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
@@ -224,7 +225,6 @@ public class CompanyDAO {
     }
 
 
-
     public static List<EmployeeDTOIDAndNameBuildingsCount> getCompanyEmployeesSortedByName(long id) {
         List<EmployeeDTOIDAndNameBuildingsCount> employees;
         try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
@@ -266,4 +266,27 @@ public class CompanyDAO {
         }
         return employees;
     }
+
+
+    public static List<CompanyIncomeDTO> getCompaniesSortedByIncome() {
+        List<CompanyIncomeDTO> companies;
+        try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            companies = session.createQuery("""
+                            select new dto.CompanyIncomeDTO(c.id,c.name,COALESCE(SUM(f.amount), 0)) from Company c
+                            left join c.employees e
+                            left join e.buildings b
+                            left join b.apartments a
+                            left join a.fees f
+                                                        
+                            group by c.id, c.name
+                            order by SUM(f.amount) desc
+
+                            """, CompanyIncomeDTO.class)
+                    .getResultList();
+            transaction.commit();
+        }
+            return companies;
+    }
+
 }
