@@ -1,11 +1,15 @@
 package dao;
 
 import configuration.SessionFactoryUtil;
+import dto.ApartmentDTO;
 import dto.ApartmentTenantNameAgeDTO;
+import dto.BuildingApartmentsCountDTO;
 import entity.Building;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.sql.Select;
 
+import javax.persistence.NoResultException;
 import java.util.List;
 
 public class BuildingDAO {
@@ -48,7 +52,6 @@ public class BuildingDAO {
 //filter and sort the data vvvv
 
 
-
     public static List<ApartmentTenantNameAgeDTO> getBuildingResidentsSortedByName(Building building) {
         List<ApartmentTenantNameAgeDTO> tenantsDTO;
         try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
@@ -85,4 +88,53 @@ public class BuildingDAO {
         return tenantsDTO;
     }
 
+
+    /*
+
+
+
+
+
+     */
+
+    public static int getBuildingApartmentsCount(Building building) {
+        BuildingApartmentsCountDTO apartmentsCountDTO;
+        try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            apartmentsCountDTO = session.createQuery("""
+                            select new dto.BuildingApartmentsCountDTO(COUNT(a.apartmentNumber)) from Building b
+                            join b.apartments a
+                            where b = :b
+                            group by b.id
+                            """, BuildingApartmentsCountDTO.class)
+                    .setParameter("b", building)
+                    .getSingleResult();
+
+            transaction.commit();
+        } catch (NoResultException e) {
+            System.out.println("No entity found for query \"getBuildingApartmentsCount\"");
+            return 0;
+        }
+        return (int) apartmentsCountDTO.getApartmentsCount();
+    }
+//
+
+    public static List<ApartmentDTO> getBuildingApartments(Building building) {
+        List<ApartmentDTO> apartmentDTOs;
+        try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            apartmentDTOs = session.createQuery("""
+                            select new dto.ApartmentDTO(a.apartmentNumber,a.floor,a.area) from Building b
+                            join b.apartments a
+                            where b = :b
+                            """, ApartmentDTO.class)
+                    .setParameter("b", building)
+                    .getResultList();
+            transaction.commit();
+        }
+        return apartmentDTOs;
+    }
+
+
 }
+

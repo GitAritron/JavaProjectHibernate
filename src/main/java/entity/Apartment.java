@@ -125,9 +125,9 @@ public class Apartment implements Serializable {
                 ", floor=" + floor +
                 ", area=" + area +
                 ", apartmentOwner=" + apartmentOwner +
-                ", tenants=" + tenants +
+/*                ", tenants=" + tenants +
                 ", pets=" + pets +
-                ", fees=" + fees +
+                ", fees=" + fees +*/
                 '}';
     }
 }

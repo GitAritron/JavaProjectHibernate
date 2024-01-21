@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="491cf250-538b-4eeb-bef2-3761c0be085f" name="Changes" comment="Added a few misc files to .gitignore">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dto/ApartmentTenantNameAgeDTO.java" afterDir="false" />
+    <list default="true" id="491cf250-538b-4eeb-bef2-3761c0be085f" name="Changes" comment="Added some organisational comments.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/dto/ApartmentDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dto/BuildingApartmentsCountDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/BuildingDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/BuildingDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/Apartment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Apartment.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +143,7 @@
       <workItem from="1704563174626" duration="6106000" />
       <workItem from="1704626154582" duration="27313000" />
       <workItem from="1705390999612" duration="21697000" />
-      <workItem from="1705666911302" duration="30583000" />
+      <workItem from="1705666911302" duration="33599000" />
     </task>
     <task id="LOCAL-00001" summary="Started Project added Entities.">
       <created>1704560155711</created>
@@ -270,7 +272,23 @@
       <option name="project" value="LOCAL" />
       <updated>1705784528264</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Added sorts and filters for Tenants in a Building.&#10;Created a new DTO for it.">
+      <option name="closed" value="true" />
+      <created>1705832031148</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1705832031148</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Added some organisational comments.">
+      <option name="closed" value="true" />
+      <created>1705832217339</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1705832217339</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -302,7 +320,9 @@
     <MESSAGE value="Added ways to sort employees of a company by name and by buildings count.&#10;Made the getting of tenants and pets 0-safe.&#10;Added a new DTO.&#10;Now adding the sorting and filtering functionality for companies based on income." />
     <MESSAGE value="Added a way to sort companies by income and even show the ones with 0 income.&#10;Tested it in Main." />
     <MESSAGE value="Added a few misc files to .gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a few misc files to .gitignore" />
+    <MESSAGE value="Added sorts and filters for Tenants in a Building.&#10;Created a new DTO for it." />
+    <MESSAGE value="Added some organisational comments." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added some organisational comments." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

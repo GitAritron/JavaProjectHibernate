@@ -37,10 +37,16 @@ public class Main {
 //        System.out.println(CompanyDAO.getCompanyEmployeesSortedByName(1L));
 //        System.out.println(CompanyDAO.getCompanyEmployeesSortedByBuildingsCount(1L));
 //        System.out.println(CompanyDAO.getCompaniesSortedByIncome());
-        System.out.println(BuildingDAO.getBuildingResidentsSortedByAge(BuildingDAO.getBuildingById(1L)));
-        System.out.println(BuildingDAO.getBuildingResidentsSortedByAge(BuildingDAO.getBuildingById(7L)));
+//        System.out.println(BuildingDAO.getBuildingResidentsSortedByAge(BuildingDAO.getBuildingById(1L)));
+//        System.out.println(BuildingDAO.getBuildingResidentsSortedByAge(BuildingDAO.getBuildingById(7L)));
 
+//        System.out.println(BuildingDAO.getBuildingApartmentsCount(BuildingDAO.getBuildingById(1L)));
+//        System.out.println(BuildingDAO.getBuildingApartmentsCount(BuildingDAO.getBuildingById(2L)));
+//        System.out.println(BuildingDAO.getBuildingApartmentsCount(BuildingDAO.getBuildingById(7L)));
 
+        System.out.println(BuildingDAO.getBuildingApartments(BuildingDAO.getBuildingById(1L)));
+        System.out.println(BuildingDAO.getBuildingApartments(BuildingDAO.getBuildingById(2L)));
+        System.out.println(BuildingDAO.getBuildingApartments(BuildingDAO.getBuildingById(7L)));
 /*
 
 
