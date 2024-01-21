@@ -225,6 +225,8 @@ public class CompanyDAO {
     }
 
 
+//filter and sort the data vvvv
+
     public static List<EmployeeDTOIDAndNameBuildingsCount> getCompanyEmployeesSortedByName(long id) {
         List<EmployeeDTOIDAndNameBuildingsCount> employees;
         try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {

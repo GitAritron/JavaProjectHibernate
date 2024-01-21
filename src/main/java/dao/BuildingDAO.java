@@ -44,6 +44,11 @@ public class BuildingDAO {
         return building;
     }
 
+
+//filter and sort the data vvvv
+
+
+
     public static List<ApartmentTenantNameAgeDTO> getBuildingResidentsSortedByName(Building building) {
         List<ApartmentTenantNameAgeDTO> tenantsDTO;
         try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
