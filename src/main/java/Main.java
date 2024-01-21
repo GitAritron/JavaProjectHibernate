@@ -44,9 +44,16 @@ public class Main {
 //        System.out.println(BuildingDAO.getBuildingApartmentsCount(BuildingDAO.getBuildingById(2L)));
 //        System.out.println(BuildingDAO.getBuildingApartmentsCount(BuildingDAO.getBuildingById(7L)));
 
-        System.out.println(BuildingDAO.getBuildingApartments(BuildingDAO.getBuildingById(1L)));
-        System.out.println(BuildingDAO.getBuildingApartments(BuildingDAO.getBuildingById(2L)));
-        System.out.println(BuildingDAO.getBuildingApartments(BuildingDAO.getBuildingById(7L)));
+//        System.out.println(BuildingDAO.getBuildingApartments(BuildingDAO.getBuildingById(1L)));
+//        System.out.println(BuildingDAO.getBuildingApartments(BuildingDAO.getBuildingById(2L)));
+//        System.out.println(BuildingDAO.getBuildingApartments(BuildingDAO.getBuildingById(7L)));
+
+        System.out.println(BuildingDAO.getBuildingTenantsCount(BuildingDAO.getBuildingById(1L)));
+        System.out.println(BuildingDAO.getBuildingTenantsCount(BuildingDAO.getBuildingById(2L)));
+        System.out.println(BuildingDAO.getBuildingTenantsCount(BuildingDAO.getBuildingById(7L)));
+
+
+
 /*
 
 

@@ -4,6 +4,7 @@ import configuration.SessionFactoryUtil;
 import dto.ApartmentDTO;
 import dto.ApartmentTenantNameAgeDTO;
 import dto.BuildingApartmentsCountDTO;
+import dto.BuildingTenantsCountDTO;
 import entity.Building;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -52,7 +53,7 @@ public class BuildingDAO {
 //filter and sort the data vvvv
 
 
-    public static List<ApartmentTenantNameAgeDTO> getBuildingResidentsSortedByName(Building building) {
+    public static List<ApartmentTenantNameAgeDTO> getBuildingTenantsSortedByName(Building building) {
         List<ApartmentTenantNameAgeDTO> tenantsDTO;
         try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
@@ -70,7 +71,7 @@ public class BuildingDAO {
         return tenantsDTO;
     }
 
-    public static List<ApartmentTenantNameAgeDTO> getBuildingResidentsSortedByAge(Building building) {
+    public static List<ApartmentTenantNameAgeDTO> getBuildingTenantsSortedByAge(Building building) {
         List<ApartmentTenantNameAgeDTO> tenantsDTO;
         try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
@@ -88,7 +89,6 @@ public class BuildingDAO {
         return tenantsDTO;
     }
 
-
     /*
 
 
@@ -96,6 +96,27 @@ public class BuildingDAO {
 
 
      */
+    public static int getBuildingTenantsCount(Building building) {
+        BuildingTenantsCountDTO tenantsCountDTO;
+        try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            tenantsCountDTO = session.createQuery("""
+                            select new dto.BuildingTenantsCountDTO(COUNT(t.id)) from Building b
+                            join b.apartments a
+                            join a.tenants t
+                            where b = :b
+                            group by b.id
+                            """, BuildingTenantsCountDTO.class)
+                    .setParameter("b", building)
+                    .getSingleResult();
+
+            transaction.commit();
+        } catch (NoResultException e) {
+            System.out.println("No entity found for query \"getBuildingTenantsCount\"");
+            return 0;
+        }
+        return (int) tenantsCountDTO.getTenantsCount();
+    }
 
     public static int getBuildingApartmentsCount(Building building) {
         BuildingApartmentsCountDTO apartmentsCountDTO;
