@@ -36,8 +36,9 @@ public class Main {
 */
 //        System.out.println(CompanyDAO.getCompanyEmployeesSortedByName(1L));
 //        System.out.println(CompanyDAO.getCompanyEmployeesSortedByBuildingsCount(1L));
-        System.out.println(CompanyDAO.getCompaniesSortedByIncome());
-
+//        System.out.println(CompanyDAO.getCompaniesSortedByIncome());
+        System.out.println(BuildingDAO.getBuildingResidentsSortedByAge(BuildingDAO.getBuildingById(1L)));
+        System.out.println(BuildingDAO.getBuildingResidentsSortedByAge(BuildingDAO.getBuildingById(7L)));
 
 
 /*

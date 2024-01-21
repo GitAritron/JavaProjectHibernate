@@ -1,9 +1,12 @@
 package dao;
 
 import configuration.SessionFactoryUtil;
+import dto.ApartmentTenantNameAgeDTO;
 import entity.Building;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+
+import java.util.List;
 
 public class BuildingDAO {
 
@@ -41,7 +44,40 @@ public class BuildingDAO {
         return building;
     }
 
-//TODO DTO for building.tax and apartment.area
-    //and ones for the other two pairs as well - in their corresponding DAOs
-    //aggregated in the final one
+    public static List<ApartmentTenantNameAgeDTO> getBuildingResidentsSortedByName(Building building) {
+        List<ApartmentTenantNameAgeDTO> tenantsDTO;
+        try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            tenantsDTO = session.createQuery("""
+                            select new dto.ApartmentTenantNameAgeDTO(a.apartmentNumber,t.id, t.name, t.birthdate) from Tenant t
+                            join t.apartment a
+                            join a.building b on b = :b
+                                                    
+                            order by t.name
+                            """, ApartmentTenantNameAgeDTO.class)
+                    .setParameter("b", building)
+                    .getResultList();
+            transaction.commit();
+        }
+        return tenantsDTO;
+    }
+
+    public static List<ApartmentTenantNameAgeDTO> getBuildingResidentsSortedByAge(Building building) {
+        List<ApartmentTenantNameAgeDTO> tenantsDTO;
+        try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            tenantsDTO = session.createQuery("""
+                            select new dto.ApartmentTenantNameAgeDTO(a.apartmentNumber,t.id, t.name, t.birthdate) from Tenant t
+                            join t.apartment a
+                            join a.building b on b = :b
+                                                    
+                            order by t.birthdate
+                            """, ApartmentTenantNameAgeDTO.class)
+                    .setParameter("b", building)
+                    .getResultList();
+            transaction.commit();
+        }
+        return tenantsDTO;
+    }
+
 }
