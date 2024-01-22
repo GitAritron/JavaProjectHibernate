@@ -1,11 +1,15 @@
 package dao;
 
 import configuration.SessionFactoryUtil;
+import dto.ApartmentFeesDTO;
 import dto.EmployeeDTOIDOnlyBuildingsCount;
+import dto.TotalFeesDTO;
+import entity.Building;
 import entity.Employee;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import javax.persistence.NoResultException;
 import java.util.List;
 
 public class EmployeeDAO {
@@ -73,5 +77,46 @@ public class EmployeeDAO {
         return employee.getBuildings().size();
     } //THIS DOESN'T WORK FROM RELATIONAL POV, BUT OOP POV!!! THAT'S WHY!
 
+
+    public static List<ApartmentFeesDTO> getEmployeeFeesToPay(Employee employee) {
+        List<ApartmentFeesDTO> apartmentDTOs;
+        try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            apartmentDTOs = session.createQuery("""
+                            select new dto.ApartmentFeesDTO(b.id,a.apartmentNumber,f.amount) from Employee e
+                            join e.buildings b
+                            join b.apartments a
+                            join a.fees f
+                            where e = :e
+                            """, ApartmentFeesDTO.class)
+                    .setParameter("e", employee)
+                    .getResultList();
+            transaction.commit();
+        }
+        return apartmentDTOs;
+    }
+
+
+    public static double getTotalSumEmployeeFeesToPay(Employee employee) {
+        TotalFeesDTO totalFeesDTO;
+        try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            totalFeesDTO = session.createQuery("""
+                            select new dto.TotalFeesDTO(SUM(f.amount)) from Employee e
+                            join e.buildings b
+                            join b.apartments a
+                            join a.fees f
+                            where e = :e
+                            group by b.id
+                            """, TotalFeesDTO.class)
+                    .setParameter("e", employee)
+                    .getSingleResult();
+            transaction.commit();
+        } catch(NoResultException e){
+            System.out.println("No entity found for query \"getTotalSumEmployeeFeesToPay\"");
+            return 0;
+        }
+        return totalFeesDTO.getTotalFees();
+    }
 
 }

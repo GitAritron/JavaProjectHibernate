@@ -54,15 +54,30 @@ public class Main {
 
 
         //DTO apartment(b.id,aNum,toPay)
+        //Fees for Building
 //        System.out.println(BuildingDAO.getBuildingFeesToPay(BuildingDAO.getBuildingById(1L)));
 //        System.out.println(BuildingDAO.getBuildingFeesToPay(BuildingDAO.getBuildingById(2L)));
 //        System.out.println(BuildingDAO.getBuildingFeesToPay(BuildingDAO.getBuildingById(7L)));
 
+        //Total Fees for Building
+//        System.out.println(BuildingDAO.getTotalSumBuildingFeesToPay(BuildingDAO.getBuildingById(1L)));
+//        System.out.println(BuildingDAO.getTotalSumBuildingFeesToPay(BuildingDAO.getBuildingById(2L)));
+//        System.out.println(BuildingDAO.getTotalSumBuildingFeesToPay(BuildingDAO.getBuildingById(7L)));
 
-        System.out.println(BuildingDAO.getTotalSumBuildingFeesToPay(BuildingDAO.getBuildingById(1L)));
-        System.out.println(BuildingDAO.getTotalSumBuildingFeesToPay(BuildingDAO.getBuildingById(2L)));
-        System.out.println(BuildingDAO.getTotalSumBuildingFeesToPay(BuildingDAO.getBuildingById(7L)));
-/*
+        //Fees for Employee
+//        System.out.println(EmployeeDAO.getEmployeeFeesToPay(EmployeeDAO.getEmployeeById(4L)));
+//        System.out.println(EmployeeDAO.getEmployeeFeesToPay(EmployeeDAO.getEmployeeById(5L)));
+//        System.out.println(EmployeeDAO.getEmployeeFeesToPay(EmployeeDAO.getEmployeeById(7L)));
+
+
+        //Total Fees for Employee
+//        System.out.println(EmployeeDAO.getTotalSumEmployeeFeesToPay(EmployeeDAO.getEmployeeById(4L)));
+//        System.out.println(EmployeeDAO.getTotalSumEmployeeFeesToPay(EmployeeDAO.getEmployeeById(5L)));
+//        System.out.println(EmployeeDAO.getTotalSumEmployeeFeesToPay(EmployeeDAO.getEmployeeById(7L)));
+
+
+
+        /*
 
 
         //populate DB:
