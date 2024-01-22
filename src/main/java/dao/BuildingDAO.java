@@ -1,10 +1,7 @@
 package dao;
 
 import configuration.SessionFactoryUtil;
-import dto.ApartmentDTO;
-import dto.ApartmentTenantNameAgeDTO;
-import dto.BuildingApartmentsCountDTO;
-import dto.BuildingTenantsCountDTO;
+import dto.*;
 import entity.Building;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -156,6 +153,44 @@ public class BuildingDAO {
         return apartmentDTOs;
     }
 
+    public static List<ApartmentFeesDTO> getBuildingFeesToPay(Building building) {
+        List<ApartmentFeesDTO> apartmentDTOs;
+        try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            apartmentDTOs = session.createQuery("""
+                            select new dto.ApartmentFeesDTO(b.id,a.apartmentNumber,f.amount) from Building b
+                            join b.apartments a
+                            join a.fees f
+                            where b = :b
+                            """, ApartmentFeesDTO.class)
+                    .setParameter("b", building)
+                    .getResultList();
+            transaction.commit();
+        }
+        return apartmentDTOs;
+    }
+
+
+    public static double getTotalSumBuildingFeesToPay(Building building) {
+        TotalFeesDTO totalFeesDTO;
+        try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            totalFeesDTO = session.createQuery("""
+                            select new dto.TotalFeesDTO(SUM(f.amount)) from Building b
+                            join b.apartments a
+                            join a.fees f
+                            where b = :b
+                            group by b.id
+                            """, TotalFeesDTO.class)
+                    .setParameter("b", building)
+                    .getSingleResult();
+            transaction.commit();
+        } catch(NoResultException e){
+            System.out.println("No entity found for query \"getTotalSumBuildingFeesToPay\"");
+            return 0;
+        }
+        return totalFeesDTO.getTotalFees();
+    }
 
 }
 
