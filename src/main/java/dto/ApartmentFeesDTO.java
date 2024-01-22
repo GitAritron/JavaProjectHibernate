@@ -6,12 +6,12 @@ public class ApartmentFeesDTO {
 
     private int apartmentNumber;
 
-    private double totalFeesToPay;
+    private double totalFees;
 
-    public ApartmentFeesDTO(long building_id, int apartmentNumber, double totalFeesToPay) {
+    public ApartmentFeesDTO(long building_id, int apartmentNumber, double totalFees) {
         this.building_id = building_id;
         this.apartmentNumber = apartmentNumber;
-        this.totalFeesToPay = totalFeesToPay;
+        this.totalFees = totalFees;
     }
 
     public long getBuilding_id() {
@@ -22,8 +22,8 @@ public class ApartmentFeesDTO {
         return apartmentNumber;
     }
 
-    public double getTotalFeesToPay() {
-        return totalFeesToPay;
+    public double getTotalFees() {
+        return totalFees;
     }
 
 
@@ -32,7 +32,7 @@ public class ApartmentFeesDTO {
         return "ApartmentFeesDTO{" +
                 "building_id=" + building_id +
                 ", apartmentNumber=" + apartmentNumber +
-                ", totalFeesToPay=" + totalFeesToPay +
+                ", totalFees=" + totalFees +
                 '}';
     }
 }

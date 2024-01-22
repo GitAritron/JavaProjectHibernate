@@ -1,15 +1,14 @@
 package dao;
 
 import configuration.SessionFactoryUtil;
-import dto.CompanyIncomeDTO;
-import dto.EmployeeDTOIDAndNameBuildingsCount;
-import dto.EmployeeDTOIDOnlyBuildingsCount;
+import dto.*;
 import entity.Building;
 import entity.Company;
 import entity.Employee;
 import org.hibernate.Transaction;
 import org.hibernate.Session;
 
+import javax.persistence.NoResultException;
 import java.util.List;
 
 public class CompanyDAO {
@@ -289,6 +288,50 @@ public class CompanyDAO {
             transaction.commit();
         }
             return companies;
+    }
+
+
+    public static List<ApartmentFeesDTO> getCompanyFeesToPay(Company company) {
+        List<ApartmentFeesDTO> apartmentDTOs;
+        try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            apartmentDTOs = session.createQuery("""
+                            select new dto.ApartmentFeesDTO(b.id,a.apartmentNumber,f.amount) from Company c
+                            join c.employees e
+                            join e.buildings b
+                            join b.apartments a
+                            join a.fees f
+                            where c = :c
+                            """, ApartmentFeesDTO.class)
+                    .setParameter("c", company)
+                    .getResultList();
+            transaction.commit();
+        }
+        return apartmentDTOs;
+    }
+
+
+    public static double getTotalSumCompanyFeesToPay(Company company) {
+        TotalFeesDTO totalFeesDTO;
+        try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            totalFeesDTO = session.createQuery("""
+                            select new dto.TotalFeesDTO(SUM(f.amount)) from Company c
+                            join c.employees e
+                            join e.buildings b
+                            join b.apartments a
+                            join a.fees f
+                            where c = :c
+                            group by c.id
+                            """, TotalFeesDTO.class)
+                    .setParameter("c", company)
+                    .getSingleResult();
+            transaction.commit();
+        } catch(NoResultException e){
+            System.out.println("No entity found for query \"getTotalSumCompanyFeesToPay\"");
+            return 0;
+        }
+        return totalFeesDTO.getTotalFees();
     }
 
 }

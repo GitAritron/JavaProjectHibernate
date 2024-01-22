@@ -76,6 +76,19 @@ public class Main {
 //        System.out.println(EmployeeDAO.getTotalSumEmployeeFeesToPay(EmployeeDAO.getEmployeeById(7L)));
 
 
+        //Fees for Company
+//        System.out.println(CompanyDAO.getCompanyFeesToPay(CompanyDAO.getCompanyById(1L)));
+//        System.out.println(CompanyDAO.getCompanyFeesToPay(CompanyDAO.getCompanyById(2L)));
+//        System.out.println(CompanyDAO.getCompanyFeesToPay(CompanyDAO.getCompanyById(3L)));
+
+
+//        Total Fees for Company
+//        System.out.println(CompanyDAO.getTotalSumCompanyFeesToPay(CompanyDAO.getCompanyById(2L)));
+//        System.out.println(CompanyDAO.getTotalSumCompanyFeesToPay(CompanyDAO.getCompanyById(1L)));
+//        System.out.println(CompanyDAO.getTotalSumCompanyFeesToPay(CompanyDAO.getCompanyById(3L)));
+
+
+
 
         /*
 

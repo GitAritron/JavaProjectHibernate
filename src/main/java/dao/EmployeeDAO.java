@@ -107,7 +107,7 @@ public class EmployeeDAO {
                             join b.apartments a
                             join a.fees f
                             where e = :e
-                            group by b.id
+                            group by e.id
                             """, TotalFeesDTO.class)
                     .setParameter("e", employee)
                     .getSingleResult();
