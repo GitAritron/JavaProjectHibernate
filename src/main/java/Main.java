@@ -87,6 +87,40 @@ public class Main {
 //        System.out.println(CompanyDAO.getTotalSumCompanyFeesToPay(CompanyDAO.getCompanyById(1L)));
 //        System.out.println(CompanyDAO.getTotalSumCompanyFeesToPay(CompanyDAO.getCompanyById(3L)));
 
+//        Paid fees
+//        Fees for Building
+        System.out.println(BuildingDAO.getBuildingFeesPaid(BuildingDAO.getBuildingById(1L)));
+        System.out.println(BuildingDAO.getBuildingFeesPaid(BuildingDAO.getBuildingById(2L)));
+        System.out.println(BuildingDAO.getBuildingFeesPaid(BuildingDAO.getBuildingById(7L)));
+
+//        Total Fees for Building
+        System.out.println(BuildingDAO.getTotalSumBuildingFeesPaid(BuildingDAO.getBuildingById(1L)));
+        System.out.println(BuildingDAO.getTotalSumBuildingFeesPaid(BuildingDAO.getBuildingById(2L)));
+        System.out.println(BuildingDAO.getTotalSumBuildingFeesPaid(BuildingDAO.getBuildingById(7L)));
+
+//        Fees for Employee
+        System.out.println(EmployeeDAO.getEmployeeFeesPaid(EmployeeDAO.getEmployeeById(4L)));
+        System.out.println(EmployeeDAO.getEmployeeFeesPaid(EmployeeDAO.getEmployeeById(5L)));
+        System.out.println(EmployeeDAO.getEmployeeFeesPaid(EmployeeDAO.getEmployeeById(7L)));
+
+
+//        Total Fees for Employee
+        System.out.println(EmployeeDAO.getTotalSumEmployeeFeesPaid(EmployeeDAO.getEmployeeById(4L)));
+        System.out.println(EmployeeDAO.getTotalSumEmployeeFeesPaid(EmployeeDAO.getEmployeeById(5L)));
+        System.out.println(EmployeeDAO.getTotalSumEmployeeFeesPaid(EmployeeDAO.getEmployeeById(7L)));
+
+
+//        Fees for Company
+        System.out.println(CompanyDAO.getCompanyFeesPaid(CompanyDAO.getCompanyById(1L)));
+        System.out.println(CompanyDAO.getCompanyFeesPaid(CompanyDAO.getCompanyById(2L)));
+        System.out.println(CompanyDAO.getCompanyFeesPaid(CompanyDAO.getCompanyById(3L)));
+
+
+//        Total Fees for Company
+        System.out.println(CompanyDAO.getTotalSumCompanyFeesPaid(CompanyDAO.getCompanyById(2L)));
+        System.out.println(CompanyDAO.getTotalSumCompanyFeesPaid(CompanyDAO.getCompanyById(1L)));
+        System.out.println(CompanyDAO.getTotalSumCompanyFeesPaid(CompanyDAO.getCompanyById(3L)));
+
 
 
 

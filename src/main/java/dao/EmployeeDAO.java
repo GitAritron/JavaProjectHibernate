@@ -119,4 +119,45 @@ public class EmployeeDAO {
         return totalFeesDTO.getTotalFees();
     }
 
+    public static List<ApartmentFeesDTO> getEmployeeFeesPaid(Employee employee) {
+        List<ApartmentFeesDTO> apartmentDTOs;
+        try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            apartmentDTOs = session.createQuery("""
+                            select new dto.ApartmentFeesDTO(b.id,a.apartmentNumber,f.amount) from Employee e
+                            join e.buildings b
+                            join b.apartments a
+                            join a.fees f
+                            where e = :e AND f.paidOnDate is not null
+                            """, ApartmentFeesDTO.class)
+                    .setParameter("e", employee)
+                    .getResultList();
+            transaction.commit();
+        }
+        return apartmentDTOs;
+    }
+
+
+    public static double getTotalSumEmployeeFeesPaid(Employee employee) {
+        TotalFeesDTO totalFeesDTO;
+        try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            totalFeesDTO = session.createQuery("""
+                            select new dto.TotalFeesDTO(SUM(f.amount)) from Employee e
+                            join e.buildings b
+                            join b.apartments a
+                            join a.fees f
+                            where e = :e AND f.paidOnDate is not null
+                            group by e.id
+                            """, TotalFeesDTO.class)
+                    .setParameter("e", employee)
+                    .getSingleResult();
+            transaction.commit();
+        } catch(NoResultException e){
+            System.out.println("No entity found for query \"getTotalSumEmployeeFeesPaid\"");
+            return 0;
+        }
+        return totalFeesDTO.getTotalFees();
+    }
+
 }

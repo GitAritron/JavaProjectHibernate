@@ -192,5 +192,44 @@ public class BuildingDAO {
         return totalFeesDTO.getTotalFees();
     }
 
+    public static List<ApartmentFeesDTO> getBuildingFeesPaid(Building building) {
+        List<ApartmentFeesDTO> apartmentDTOs;
+        try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            apartmentDTOs = session.createQuery("""
+                            select new dto.ApartmentFeesDTO(b.id,a.apartmentNumber,f.amount) from Building b
+                            join b.apartments a
+                            join a.fees f
+                            where b = :b AND f.paidOnDate is not null
+                            """, ApartmentFeesDTO.class)
+                    .setParameter("b", building)
+                    .getResultList();
+            transaction.commit();
+        }
+        return apartmentDTOs;
+    }
+
+
+    public static double getTotalSumBuildingFeesPaid(Building building) {
+        TotalFeesDTO totalFeesDTO;
+        try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            totalFeesDTO = session.createQuery("""
+                            select new dto.TotalFeesDTO(SUM(f.amount)) from Building b
+                            join b.apartments a
+                            join a.fees f
+                            where b = :b AND f.paidOnDate is not null
+                            group by b.id
+                            """, TotalFeesDTO.class)
+                    .setParameter("b", building)
+                    .getSingleResult();
+            transaction.commit();
+        } catch(NoResultException e){
+            System.out.println("No entity found for query \"getTotalSumBuildingFeesPaid\"");
+            return 0;
+        }
+        return totalFeesDTO.getTotalFees();
+    }
+
 }
 

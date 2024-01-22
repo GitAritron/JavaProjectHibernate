@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="491cf250-538b-4eeb-bef2-3761c0be085f" name="Changes" comment="Added queries to get Employee Fees - List and Total sum.">
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+    <list default="true" id="491cf250-538b-4eeb-bef2-3761c0be085f" name="Changes" comment="Added queries to get Company Fees - List and Total sum.&#10;&#10;Modified DTO to work for both fees.">
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/BuildingDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/BuildingDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/CompanyDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/CompanyDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/EmployeeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/EmployeeDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +139,7 @@
       <workItem from="1704563174626" duration="6106000" />
       <workItem from="1704626154582" duration="27313000" />
       <workItem from="1705390999612" duration="21697000" />
-      <workItem from="1705666911302" duration="38848000" />
+      <workItem from="1705666911302" duration="39247000" />
     </task>
     <task id="LOCAL-00001" summary="Started Project added Entities.">
       <created>1704560155711</created>
@@ -317,7 +316,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705965723309</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Added queries to get Company Fees - List and Total sum.&#10;&#10;Modified DTO to work for both fees.">
+      <option name="closed" value="true" />
+      <created>1705966258398</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1705966258398</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -355,7 +362,8 @@
     <MESSAGE value="Added summary queries for Building Tenants.&#10;And created a new DTO for this." />
     <MESSAGE value="Added queries to get Building Fees - List and Total sum.&#10;Two new DTOs for that" />
     <MESSAGE value="Added queries to get Employee Fees - List and Total sum." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added queries to get Employee Fees - List and Total sum." />
+    <MESSAGE value="Added queries to get Company Fees - List and Total sum.&#10;&#10;Modified DTO to work for both fees." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added queries to get Company Fees - List and Total sum.&#10;&#10;Modified DTO to work for both fees." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
