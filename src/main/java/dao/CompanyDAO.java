@@ -290,6 +290,46 @@ public class CompanyDAO {
             return companies;
     }
 
+    public static List<EmployeeDTOIDAndNameBuildingsCount> getCompanyEmployeesBuildingCount(Company company){
+        List<EmployeeDTOIDAndNameBuildingsCount> employeesBuildingCounts;
+        try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            employeesBuildingCounts = session.createQuery("""
+                            select new dto.EmployeeDTOIDAndNameBuildingsCount(e.id,e.name,COUNT(b.id)) from Company c
+                            join c.employees e
+                            join e.buildings b
+                            where c = :c
+                            group by e.id
+                            """, EmployeeDTOIDAndNameBuildingsCount.class)
+                    .setParameter("c", company)
+                    .getResultList();
+
+            transaction.commit();
+        }
+        return employeesBuildingCounts;
+    }
+//
+
+    public static List<EmployeeDTOIDAndNameBuildingsCount> getCompanyBuildingCount(Company company){
+        List<EmployeeDTOIDAndNameBuildingsCount> employeesBuildingCounts;
+        try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            employeesBuildingCounts = session.createQuery("""
+                            select new dto.EmployeeDTOIDAndNameBuildingsCount(e.id,e.name,COUNT(b.id)) from Company c
+                            join c.employees e
+                            join e.buildings b
+                            where c = :c
+                            group by e.id
+                            """, EmployeeDTOIDAndNameBuildingsCount.class)
+                    .setParameter("c", company)
+                    .getResultList();
+
+            transaction.commit();
+        }
+        return employeesBuildingCounts;
+    }
+
+
 
     public static List<ApartmentFeesDTO> getCompanyFeesToPay(Company company) {
         List<ApartmentFeesDTO> apartmentDTOs;

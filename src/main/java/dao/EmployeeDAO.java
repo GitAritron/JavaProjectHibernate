@@ -1,10 +1,9 @@
 package dao;
 
 import configuration.SessionFactoryUtil;
-import dto.ApartmentFeesDTO;
-import dto.EmployeeDTOIDOnlyBuildingsCount;
-import dto.TotalFeesDTO;
+import dto.*;
 import entity.Building;
+import entity.Company;
 import entity.Employee;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -76,6 +75,24 @@ public class EmployeeDAO {
         }
         return employee.getBuildings().size();
     } //THIS DOESN'T WORK FROM RELATIONAL POV, BUT OOP POV!!! THAT'S WHY!
+
+
+    public static List<BuildingNoFeesDTO> getEmployeeBuildings(Employee employee){
+        List<BuildingNoFeesDTO> buildingDTOs;
+        try (Session session = SessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            buildingDTOs = session.createQuery("""
+                            select new dto.BuildingNoFeesDTO(b.id,b.numOfFloors,b.numOfApartments,b.totalArea) from Employee e
+                            join e.buildings b
+                            where e = :e
+                            """, BuildingNoFeesDTO.class)
+                    .setParameter("e", employee)
+                    .getResultList();
+
+            transaction.commit();
+        }
+        return buildingDTOs;
+    }
 
 
     public static List<ApartmentFeesDTO> getEmployeeFeesToPay(Employee employee) {

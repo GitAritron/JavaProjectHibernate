@@ -40,7 +40,7 @@ public class EmployeeDTOIDAndNameBuildingsCount {
     @Override
     public String toString() {
         return "EmployeeDTOIDAndNameBuildingsCount{" +
-//                "id=" + id + ", " +
+                "id=" + id + ", " +
                 "name='" + name + '\'' +
                 ", buildingCount=" + buildingCount +
                 '}';

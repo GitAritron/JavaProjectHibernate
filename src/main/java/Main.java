@@ -1,9 +1,11 @@
 import configuration.SessionFactoryUtil;
 import dao.*;
+import dto.EmployeeDTOIDAndNameBuildingsCount;
 import entity.Apartment;
 import entity.Building;
 import entity.Company;
 import entity.Employee;
+import org.hibernate.EntityMode;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -89,37 +91,49 @@ public class Main {
 
 //        Paid fees
 //        Fees for Building
-        System.out.println(BuildingDAO.getBuildingFeesPaid(BuildingDAO.getBuildingById(1L)));
-        System.out.println(BuildingDAO.getBuildingFeesPaid(BuildingDAO.getBuildingById(2L)));
-        System.out.println(BuildingDAO.getBuildingFeesPaid(BuildingDAO.getBuildingById(7L)));
+//        System.out.println(BuildingDAO.getBuildingFeesPaid(BuildingDAO.getBuildingById(1L)));
+//        System.out.println(BuildingDAO.getBuildingFeesPaid(BuildingDAO.getBuildingById(2L)));
+//        System.out.println(BuildingDAO.getBuildingFeesPaid(BuildingDAO.getBuildingById(7L)));
+//
+////        Total Fees for Building
+//        System.out.println(BuildingDAO.getTotalSumBuildingFeesPaid(BuildingDAO.getBuildingById(1L)));
+//        System.out.println(BuildingDAO.getTotalSumBuildingFeesPaid(BuildingDAO.getBuildingById(2L)));
+//        System.out.println(BuildingDAO.getTotalSumBuildingFeesPaid(BuildingDAO.getBuildingById(7L)));
+//
+////        Fees for Employee
+//        System.out.println(EmployeeDAO.getEmployeeFeesPaid(EmployeeDAO.getEmployeeById(4L)));
+//        System.out.println(EmployeeDAO.getEmployeeFeesPaid(EmployeeDAO.getEmployeeById(5L)));
+//        System.out.println(EmployeeDAO.getEmployeeFeesPaid(EmployeeDAO.getEmployeeById(7L)));
+//
+//
+////        Total Fees for Employee
+//        System.out.println(EmployeeDAO.getTotalSumEmployeeFeesPaid(EmployeeDAO.getEmployeeById(4L)));
+//        System.out.println(EmployeeDAO.getTotalSumEmployeeFeesPaid(EmployeeDAO.getEmployeeById(5L)));
+//        System.out.println(EmployeeDAO.getTotalSumEmployeeFeesPaid(EmployeeDAO.getEmployeeById(7L)));
+//
+//
+////        Fees for Company
+//        System.out.println(CompanyDAO.getCompanyFeesPaid(CompanyDAO.getCompanyById(1L)));
+//        System.out.println(CompanyDAO.getCompanyFeesPaid(CompanyDAO.getCompanyById(2L)));
+//        System.out.println(CompanyDAO.getCompanyFeesPaid(CompanyDAO.getCompanyById(3L)));
+//
+//
+////        Total Fees for Company
+//        System.out.println(CompanyDAO.getTotalSumCompanyFeesPaid(CompanyDAO.getCompanyById(2L)));
+//        System.out.println(CompanyDAO.getTotalSumCompanyFeesPaid(CompanyDAO.getCompanyById(1L)));
+//        System.out.println(CompanyDAO.getTotalSumCompanyFeesPaid(CompanyDAO.getCompanyById(3L)));
 
-//        Total Fees for Building
-        System.out.println(BuildingDAO.getTotalSumBuildingFeesPaid(BuildingDAO.getBuildingById(1L)));
-        System.out.println(BuildingDAO.getTotalSumBuildingFeesPaid(BuildingDAO.getBuildingById(2L)));
-        System.out.println(BuildingDAO.getTotalSumBuildingFeesPaid(BuildingDAO.getBuildingById(7L)));
+        //Company Employee Building Count
+//        System.out.println(CompanyDAO.getCompanyEmployeesBuildingCount(CompanyDAO.getCompanyById(1L)));
+//        System.out.println(CompanyDAO.getCompanyEmployeesBuildingCount(CompanyDAO.getCompanyById(2L)));
+//        System.out.println(CompanyDAO.getCompanyEmployeesBuildingCount(CompanyDAO.getCompanyById(3L)));
 
-//        Fees for Employee
-        System.out.println(EmployeeDAO.getEmployeeFeesPaid(EmployeeDAO.getEmployeeById(4L)));
-        System.out.println(EmployeeDAO.getEmployeeFeesPaid(EmployeeDAO.getEmployeeById(5L)));
-        System.out.println(EmployeeDAO.getEmployeeFeesPaid(EmployeeDAO.getEmployeeById(7L)));
+        //Employee Buildings Details
+        System.out.println(EmployeeDAO.getEmployeeBuildings(EmployeeDAO.getEmployeeById(4L)));
+        System.out.println(EmployeeDAO.getEmployeeBuildings(EmployeeDAO.getEmployeeById(5L)));
+        System.out.println(EmployeeDAO.getEmployeeBuildings(EmployeeDAO.getEmployeeById(7L)));
+        System.out.println(EmployeeDAO.getEmployeeBuildings(EmployeeDAO.getEmployeeById(8L)));
 
-
-//        Total Fees for Employee
-        System.out.println(EmployeeDAO.getTotalSumEmployeeFeesPaid(EmployeeDAO.getEmployeeById(4L)));
-        System.out.println(EmployeeDAO.getTotalSumEmployeeFeesPaid(EmployeeDAO.getEmployeeById(5L)));
-        System.out.println(EmployeeDAO.getTotalSumEmployeeFeesPaid(EmployeeDAO.getEmployeeById(7L)));
-
-
-//        Fees for Company
-        System.out.println(CompanyDAO.getCompanyFeesPaid(CompanyDAO.getCompanyById(1L)));
-        System.out.println(CompanyDAO.getCompanyFeesPaid(CompanyDAO.getCompanyById(2L)));
-        System.out.println(CompanyDAO.getCompanyFeesPaid(CompanyDAO.getCompanyById(3L)));
-
-
-//        Total Fees for Company
-        System.out.println(CompanyDAO.getTotalSumCompanyFeesPaid(CompanyDAO.getCompanyById(2L)));
-        System.out.println(CompanyDAO.getTotalSumCompanyFeesPaid(CompanyDAO.getCompanyById(1L)));
-        System.out.println(CompanyDAO.getTotalSumCompanyFeesPaid(CompanyDAO.getCompanyById(3L)));
 
 
 
