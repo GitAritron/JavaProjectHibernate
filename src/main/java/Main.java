@@ -129,10 +129,10 @@ public class Main {
 //        System.out.println(CompanyDAO.getCompanyEmployeesBuildingCount(CompanyDAO.getCompanyById(3L)));
 
         //Employee Buildings Details
-        System.out.println(EmployeeDAO.getEmployeeBuildings(EmployeeDAO.getEmployeeById(4L)));
-        System.out.println(EmployeeDAO.getEmployeeBuildings(EmployeeDAO.getEmployeeById(5L)));
-        System.out.println(EmployeeDAO.getEmployeeBuildings(EmployeeDAO.getEmployeeById(7L)));
-        System.out.println(EmployeeDAO.getEmployeeBuildings(EmployeeDAO.getEmployeeById(8L)));
+//        System.out.println(EmployeeDAO.getEmployeeBuildings(EmployeeDAO.getEmployeeById(4L)));
+//        System.out.println(EmployeeDAO.getEmployeeBuildings(EmployeeDAO.getEmployeeById(5L)));
+//        System.out.println(EmployeeDAO.getEmployeeBuildings(EmployeeDAO.getEmployeeById(7L)));
+//        System.out.println(EmployeeDAO.getEmployeeBuildings(EmployeeDAO.getEmployeeById(8L)));
 
 
 
