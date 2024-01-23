@@ -1,5 +1,7 @@
 package dto;
 
+import entity.Apartment;
+
 public class ApartmentDTO {
 
     private int apartmentNumber;
@@ -13,7 +15,11 @@ public class ApartmentDTO {
         this.floor = floor;
         this.area = area;
     }
-
+    public ApartmentDTO(Apartment apartment) {
+        this.apartmentNumber = apartment.getApartmentNumber();
+        this.floor = apartment.getFloor();
+        this.area = apartment.getArea();
+    }
 
     @Override
     public String toString() {

@@ -1,5 +1,7 @@
 package dto;
 
+import entity.Building;
+
 public class BuildingNoFeesDTO {
 
     private long building_id;
@@ -12,6 +14,12 @@ public class BuildingNoFeesDTO {
         this.numOfFloors = numOfFloors;
         this.numOfApartments = numOfApartments;
         this.totalArea = totalArea;
+    }
+    public BuildingNoFeesDTO(Building building) {
+        this.building_id = building.getId();
+        this.numOfFloors = building.getNumOfFloors();
+        this.numOfApartments = building.getNumOfApartments();
+        this.totalArea = building.getTotalArea();
     }
 
     public long getBuilding_id() {

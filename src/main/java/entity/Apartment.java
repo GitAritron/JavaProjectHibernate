@@ -78,6 +78,10 @@ public class Apartment implements Serializable {
         return building;
     }
 
+    public int getFloor() {
+        return floor;
+    }
+
     public int getApartmentNumber() {
         return apartmentNumber;
     }

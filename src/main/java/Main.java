@@ -1,5 +1,6 @@
 import configuration.SessionFactoryUtil;
 import dao.*;
+import dto.ApartmentDTO;
 import dto.EmployeeDTOIDAndNameBuildingsCount;
 import entity.Apartment;
 import entity.Building;
@@ -9,6 +10,7 @@ import org.hibernate.EntityMode;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.io.IOException;
 import java.time.LocalDate;
 
 public class Main {
@@ -21,8 +23,8 @@ public class Main {
         System.out.println(building);
 //        CompanyDAO.contractNewBuilding(company, building);
         System.out.println(building);
-        Apartment apartment = new Apartment(BuildingDAO.getBuildingById(7L),1,1,10000);
-//        Employee employee = EmployeeDAO.getEmployeeById(5L);
+//        Apartment apartment = new Apartment(BuildingDAO.getBuildingById(7L),1,1,10000);
+        Employee employee = EmployeeDAO.getEmployeeById(5L);
 
 //        System.out.println(EmployeeDAO.getNumberOfBuildingsOfEmployee(5L));
 //        System.out.println(CompanyDAO.getCompanyEmployeeDTOIDOnlyBuildingsCountWithLeastBuildings(1L));
@@ -134,7 +136,12 @@ public class Main {
 //        System.out.println(EmployeeDAO.getEmployeeBuildings(EmployeeDAO.getEmployeeById(7L)));
 //        System.out.println(EmployeeDAO.getEmployeeBuildings(EmployeeDAO.getEmployeeById(8L)));
 
-
+        Apartment apartment = new Apartment(BuildingDAO.getBuildingById(7L),1,1,10000);
+        try {
+            FeesDAO.payFees(apartment,LocalDate.now());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
 
 

@@ -69,6 +69,18 @@ public class Building {
         return id;
     }
 
+    public int getNumOfFloors() {
+        return numOfFloors;
+    }
+
+    public int getNumOfApartments() {
+        return numOfApartments;
+    }
+
+    public double getTotalArea() {
+        return totalArea;
+    }
+
     public void setNumOfFloors(int numOfFloors) {
         this.numOfFloors = numOfFloors;
     }
