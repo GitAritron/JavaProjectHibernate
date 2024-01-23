@@ -19,14 +19,12 @@ public class PrintPaidFeesToFile {
     //TODO
 
 
-
     public static void printReceiptForPayment(ReceiptInformationDTO receiptInformationDTO, LocalDate paidOn) throws IOException {
         Receipt receipt = new Receipt(receiptInformationDTO.getCompanyIDNameDTO(), receiptInformationDTO.getEmployeeIDNameDTO(), receiptInformationDTO.getBuildingNoFeesDTO(), receiptInformationDTO.getApartmentDTO(), receiptInformationDTO.getAmount(), paidOn);
-        try (FileWriter fw = new FileWriter("src/main/java/receipts/receipt" + LocalDate.now()+ Receipt.getIdcounter());
+        try (FileWriter fw = new FileWriter("src/main/java/receipts/receipt" + LocalDate.now() + Receipt.getIdcounter());
              PrintWriter pw = new PrintWriter(fw)) {
             pw.println(receipt);
 
-            }
         }
     }
 }
