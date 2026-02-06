@@ -37,6 +37,7 @@ public class BuildingNoFeesDTO {
         return totalArea;
     }
 
+
     @Override
     public String toString() {
         return "BuildingNoFeesDTO{" +

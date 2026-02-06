@@ -1,0 +1,7 @@
+Receipt1{ Company: CompanyIDNameDTO{id=2, name='MCD'} ;
+Employee: EmployeeIDNameDTO{id=7, name='afg'} ;
+Building: BuildingNoFeesDTO{building_id=7, numOfFloors=1, numOfApartments=1, totalArea=12312.0} ;
+Apartment: ApartmentDTO{apartmentNumber=1, floor=1, area=12312.0} ;
+Amount: 12312.0 ;
+DateOfPayment: 2024-01-23 ;
+}

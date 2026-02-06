@@ -192,13 +192,13 @@ public class CompanyDAO {
 //            Employee employee = session.find(Employee.class, 8L); //example
 
             EmployeeDTOIDOnlyBuildingsCount employee = getCompanyEmployeeDTOIDOnlyBuildingsCountWithLeastBuildings(company.getId());
-            System.out.println(employee);
+//            System.out.println(employee);
 //            employee.getBuildings().add(building); //no need to update the collection for the employee since it's used only here
 //            building.setEmployee(session.find(Employee.class,employee.getId())); //it's already gotten right?
 //            building.setEmployee(employee); //it is DTO
             building.setEmployee(EmployeeDAO.getEmployeeById(employee.getId()));
 //            session.saveOrUpdate(employee);
-            session.saveOrUpdate(building);
+            session.update(building);
             transaction.commit();
 //            System.out.println(employee);
         }

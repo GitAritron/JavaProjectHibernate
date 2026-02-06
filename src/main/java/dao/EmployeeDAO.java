@@ -42,6 +42,9 @@ public class EmployeeDAO {
             Transaction transaction = session.beginTransaction();
             //TODO here - transfer managed buildings to other employees of the company
             employee.setCompany(null); //remove the FK for company (not tested)
+            List<BuildingNoFeesDTO> buildingNoFeesDTO = EmployeeDAO.getEmployeeBuildings(employee);
+            buildingNoFeesDTO.forEach(building -> CompanyDAO.contractNewBuilding(employee.getCompany(),BuildingDAO.getBuildingById(building.getBuilding_id())));
+//            foreach.contractNewBuilding(company, building)
             transaction.commit();
         }
     }

@@ -4,21 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="491cf250-538b-4eeb-bef2-3761c0be085f" name="Changes" comment="Added comments, modified tests of the methods.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dto/CompanyIDNameDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dto/EmployeeIDNameDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dto/ReceiptInformationDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dto/ReceiptInformationDTOBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/utility/model/Receipt.java" afterDir="false" />
+    <list default="true" id="491cf250-538b-4eeb-bef2-3761c0be085f" name="Changes" comment="fixed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/FeesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/FeesDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dto/ApartmentDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/ApartmentDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/CompanyDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/CompanyDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/EmployeeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/EmployeeDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dto/BuildingNoFeesDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/BuildingNoFeesDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dto/EmployeeDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/Apartment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Apartment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Building.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utility/PrintPaidFeesToFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility/PrintPaidFeesToFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Employee.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,20 +40,20 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="SIGN_OFF_COMMIT" value="true" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "history": [
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;history&quot;: [
     {
-      "state": "OPEN",
-      "assignee": "GitAritron",
-      "author": "GitAritron"
+      &quot;state&quot;: &quot;OPEN&quot;,
+      &quot;assignee&quot;: &quot;GitAritron&quot;,
+      &quot;author&quot;: &quot;GitAritron&quot;
     }
   ],
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "GitAritron",
-    "author": "GitAritron"
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;GitAritron&quot;,
+    &quot;author&quot;: &quot;GitAritron&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -88,7 +81,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Gradle.JavaProjectHibernate [:Main.main()].executor": "Debug",
+    "Gradle.JavaProjectHibernate [:Main.main()].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
@@ -96,7 +89,7 @@
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/HP/IdeaProjects/JavaProjectHibernate",
+    "last_opened_file_path": "C:/Users/HP/IdeaProjects/Semester 4/JavaProject_FS_106317",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -152,7 +145,13 @@
       <workItem from="1704563174626" duration="6106000" />
       <workItem from="1704626154582" duration="27313000" />
       <workItem from="1705390999612" duration="21697000" />
-      <workItem from="1705666911302" duration="48688000" />
+      <workItem from="1705666911302" duration="50673000" />
+      <workItem from="1712479722191" duration="2750000" />
+      <workItem from="1715534991863" duration="39000" />
+      <workItem from="1715694289339" duration="3907000" />
+      <workItem from="1716548516480" duration="3000" />
+      <workItem from="1718011222995" duration="45000" />
+      <workItem from="1729088050277" duration="708000" />
     </task>
     <task id="LOCAL-00001" summary="Started Project added Entities.">
       <created>1704560155711</created>
@@ -361,7 +360,23 @@
       <option name="project" value="LOCAL" />
       <updated>1705968874561</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Added print to file for receipts and DTOs and stuff">
+      <option name="closed" value="true" />
+      <created>1705976089551</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1705976089551</updated>
+    </task>
+    <task id="LOCAL-00028" summary="fixed">
+      <option name="closed" value="true" />
+      <created>1705976120816</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1705976120816</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -379,7 +394,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Started Project added Entities." />
     <MESSAGE value="Fixed db mapping." />
     <MESSAGE value="Added basic forms of DAOs." />
     <MESSAGE value="Added initialization of each object's Set on creation;&#10;Added fireEmployee (in addition to delete, so that we do not lose any data pointlessly)" />
@@ -403,7 +417,9 @@
     <MESSAGE value="Added queries to get paid fees for all the abovementioned queries too." />
     <MESSAGE value="Added queries to get managed Buildings based on Employee - both summarised count and a list.&#10;Added new DTO for that." />
     <MESSAGE value="Added comments, modified tests of the methods." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added comments, modified tests of the methods." />
+    <MESSAGE value="Added print to file for receipts and DTOs and stuff" />
+    <MESSAGE value="fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -670,22 +686,22 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/utility/PrintPaidFeesToFile.java</url>
-          <line>26</line>
+          <line>25</line>
           <option name="timeStamp" value="102" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/utility/PrintPaidFeesToFile.java</url>
-          <line>25</line>
+          <line>24</line>
           <option name="timeStamp" value="103" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/utility/PrintPaidFeesToFile.java</url>
-          <line>24</line>
+          <line>23</line>
           <option name="timeStamp" value="104" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/utility/PrintPaidFeesToFile.java</url>
-          <line>23</line>
+          <line>22</line>
           <option name="timeStamp" value="106" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
